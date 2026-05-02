@@ -11,7 +11,7 @@ import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 const SLUG = "/services/human-centered-design";
 const TITLE = "Human-Centered Design (IEC 62366) for Medical Devices";
 const DESCRIPTION =
-  "Human-centered design and human factors engineering for medical devices and combination products — IEC 62366 use specification, formative and summative validation, and use-related risk analysis.";
+  "Human-centered design and human factors engineering under IEC 62366 — use specification, use-related risk analysis, and formative-to-summative evaluation.";
 
 export const metadata: Metadata = {
   title: "Human-Centered Design",

@@ -43,6 +43,7 @@ export default function HomePage() {
       </Section>
 
       <Section bordered>
+        <h2 className="sr-only">Practice areas</h2>
         <div className="grid gap-10 sm:grid-cols-3">
           <Pillar
             eyebrow="Design"

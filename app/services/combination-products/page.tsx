@@ -11,7 +11,7 @@ import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 const SLUG = "/services/combination-products";
 const TITLE = "Combination Products Consulting (FDA 21 CFR Part 4)";
 const DESCRIPTION =
-  "Combination product engineering, regulatory, and human factors consulting under FDA 21 CFR Part 4 — drug-device strategy, design controls, and HFE integration.";
+  "Combination product consulting under FDA 21 CFR Part 4 — drug-device strategy, integrated design controls, and human factors engineering.";
 
 export const metadata: Metadata = {
   title: "Combination Products Consulting",
