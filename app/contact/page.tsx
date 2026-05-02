@@ -22,16 +22,15 @@ export default function ContactPage() {
             sentences on the program, the question, and the timeline — we&apos;ll
             get back to you.
           </p>
+          {/*
+            TODO: re-add hello@hitmakerengineering.com sidebar line once
+            Resend domain verification + Cloudflare Email Routing alias
+            hello@ → kdherrington@gmail.com are wired. Until then we keep
+            the form as the only contact surface to avoid showing a
+            non-working address. See backlog: branded Resend domain
+            verification.
+          */}
           <div className="mt-8 space-y-2 text-sm text-ink-600">
-            <p>
-              <span className="text-ink-500">Email · </span>
-              <a
-                href="mailto:hello@hitmakerengineering.com"
-                className="text-ink-900 no-underline hover:underline"
-              >
-                hello@hitmakerengineering.com
-              </a>
-            </p>
             <p>
               <span className="text-ink-500">Based in · </span>
               San Francisco, CA

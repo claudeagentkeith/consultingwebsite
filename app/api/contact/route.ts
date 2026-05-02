@@ -55,10 +55,14 @@ export async function POST(req: Request) {
   const to = process.env.CONTACT_TO_EMAIL;
   const from = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
 
+  // TODO: when Resend domain verification + Cloudflare Email Routing alias
+  // hello@ → kdherrington@gmail.com are wired, the error messages below can
+  // surface a "or email hello@hitmakerengineering.com directly" fallback again.
+  // See backlog: branded Resend domain verification.
   if (!apiKey || !to) {
     console.error("Contact form misconfigured: missing RESEND_API_KEY or CONTACT_TO_EMAIL");
     return NextResponse.json(
-      { error: "The contact form isn't fully configured yet. Please email hello@hitmakerengineering.com directly." },
+      { error: "The contact form isn't fully configured yet. Please try again in a moment." },
       { status: 500 },
     );
   }
@@ -89,7 +93,7 @@ export async function POST(req: Request) {
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json(
-        { error: "Email service error. Please try again or email hello@hitmakerengineering.com directly." },
+        { error: "Email service error. Please try again in a moment." },
         { status: 502 },
       );
     }
@@ -97,7 +101,7 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("Resend exception:", err);
     return NextResponse.json(
-      { error: "Email service error. Please try again or email hello@hitmakerengineering.com directly." },
+      { error: "Email service error. Please try again in a moment." },
       { status: 502 },
     );
   }
