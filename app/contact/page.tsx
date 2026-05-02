@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { Section } from "@/components/Section";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,7 +19,14 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <Section className="pt-20">
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Contact", url: "/contact" },
+        ]}
+      />
+      <Section className="pt-20">
       <div className="grid gap-12 sm:grid-cols-[1fr,1.2fr]">
         <div>
           <p className="eyebrow">Contact</p>
@@ -50,6 +58,7 @@ export default function ContactPage() {
           <ContactForm />
         </div>
       </div>
-    </Section>
+      </Section>
+    </>
   );
 }
