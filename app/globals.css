@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-white text-ink-800;
+  }
+  ::selection {
+    @apply bg-accent/15 text-ink-900;
+  }
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight text-ink-900;
+  }
+  a {
+    @apply underline-offset-4;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto w-full max-w-5xl px-6 sm:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-md bg-ink-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-ink-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-md border border-ink-200 px-4 py-2 text-sm font-medium text-ink-800 transition hover:border-ink-300 hover:bg-ink-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.16em] text-ink-500;
+  }
+  .field-label {
+    @apply mb-1 block text-sm font-medium text-ink-700;
+  }
+  .field-input {
+    @apply block w-full rounded-md border border-ink-200 bg-white px-3 py-2 text-sm text-ink-900 shadow-sm transition placeholder:text-ink-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30;
+  }
+}
