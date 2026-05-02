@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { OrganizationJsonLd } from "@/components/JsonLd";
 
 const SITE_URL = "https://hitmakerengineering.com";
 
@@ -69,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col font-sans">
+        <OrganizationJsonLd />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

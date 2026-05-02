@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/Section";
+import { BreadcrumbJsonLd, ServiceJsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -66,6 +67,18 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+        ]}
+      />
+      <ServiceJsonLd
+        name="Medical device and combination product engineering consulting"
+        slug="/services"
+        description="Design engineering, program leadership, regulatory & quality, and combination product consulting for medical device and pharma teams."
+        serviceType="Medical Device Engineering Consulting"
+      />
       <Section className="pt-20">
         <p className="eyebrow">Services</p>
         <h1 className="mt-4 max-w-3xl text-4xl sm:text-5xl">
