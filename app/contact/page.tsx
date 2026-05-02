@@ -19,17 +19,17 @@ export default function ContactPage() {
           </h1>
           <p className="mt-6 text-lg text-ink-600">
             Most engagements start with a one-hour scoping call. Share a few
-            sentences on the program, the question, and the timeline — Keith
-            will get back to you.
+            sentences on the program, the question, and the timeline — we&apos;ll
+            get back to you.
           </p>
           <div className="mt-8 space-y-2 text-sm text-ink-600">
             <p>
               <span className="text-ink-500">Email · </span>
               <a
-                href="mailto:kdherrington@gmail.com"
+                href="mailto:hello@hitmakerengineering.com"
                 className="text-ink-900 no-underline hover:underline"
               >
-                kdherrington@gmail.com
+                hello@hitmakerengineering.com
               </a>
             </p>
             <p>

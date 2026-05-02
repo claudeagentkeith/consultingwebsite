@@ -57,13 +57,13 @@ export default function ContactForm() {
       <div className="rounded-xl border border-ink-100 bg-ink-50 p-6 text-ink-700">
         <p className="font-medium text-ink-900">Message sent.</p>
         <p className="mt-1 text-sm">
-          Thanks — Keith will get back to you shortly. If it&apos;s urgent,
+          Thanks — we&apos;ll get back to you shortly. If it&apos;s urgent,
           email{" "}
           <a
-            href="mailto:kdherrington@gmail.com"
+            href="mailto:hello@hitmakerengineering.com"
             className="font-medium text-ink-900"
           >
-            kdherrington@gmail.com
+            hello@hitmakerengineering.com
           </a>{" "}
           directly.
         </p>

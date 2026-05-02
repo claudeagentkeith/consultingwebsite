@@ -58,7 +58,7 @@ export async function POST(req: Request) {
   if (!apiKey || !to) {
     console.error("Contact form misconfigured: missing RESEND_API_KEY or CONTACT_TO_EMAIL");
     return NextResponse.json(
-      { error: "The contact form isn't fully configured yet. Please email kdherrington@gmail.com directly." },
+      { error: "The contact form isn't fully configured yet. Please email hello@hitmakerengineering.com directly." },
       { status: 500 },
     );
   }
@@ -89,7 +89,7 @@ export async function POST(req: Request) {
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json(
-        { error: "Email service error. Please try again or email kdherrington@gmail.com directly." },
+        { error: "Email service error. Please try again or email hello@hitmakerengineering.com directly." },
         { status: 502 },
       );
     }
@@ -97,7 +97,7 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("Resend exception:", err);
     return NextResponse.json(
-      { error: "Email service error. Please try again or email kdherrington@gmail.com directly." },
+      { error: "Email service error. Please try again or email hello@hitmakerengineering.com directly." },
       { status: 502 },
     );
   }

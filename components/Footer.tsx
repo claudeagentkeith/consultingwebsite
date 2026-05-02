@@ -8,18 +8,10 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="mailto:kdherrington@gmail.com"
+            href="mailto:hello@hitmakerengineering.com"
             className="text-ink-600 no-underline transition hover:text-ink-900"
           >
-            kdherrington@gmail.com
-          </a>
-          <a
-            href="https://www.linkedin.com/in/keith-herrington/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ink-600 no-underline transition hover:text-ink-900"
-          >
-            LinkedIn
+            hello@hitmakerengineering.com
           </a>
         </div>
       </div>

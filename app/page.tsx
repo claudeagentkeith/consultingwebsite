@@ -12,10 +12,10 @@ export default function HomePage() {
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-ink-600">
           Hitmaker Engineering helps device and pharma teams ship platform
-          products with confidence: design controls, regulatory strategy, human
-          factors, and program leadership delivered by a Professional Engineer
-          who has run the room on $60M R&amp;D portfolios and 100+ contributor
-          programs.
+          products with confidence. We bring senior engineering judgment to
+          design controls, regulatory strategy, human factors, and program
+          leadership — drawing on principals who have run the room on Fortune
+          500 R&amp;D portfolios and 100+ contributor programs.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Link href="/contact" className="btn">
@@ -25,10 +25,20 @@ export default function HomePage() {
             See services
           </Link>
         </div>
-        <dl className="mt-14 grid grid-cols-1 gap-8 border-t border-ink-100 pt-10 sm:grid-cols-3">
-          <Stat value="$60M" label="R&D engineering budget owned at Cepheid" />
-          <Stat value="100+" label="contributors aligned on a single platform program" />
-          <Stat value="$80M" label="duplicate development cost avoided through platform consolidation" />
+        <p className="mt-14 eyebrow">Typical project impact</p>
+        <dl className="mt-4 grid grid-cols-1 gap-8 border-t border-ink-100 pt-10 sm:grid-cols-3">
+          <Stat
+            value="$60M"
+            label="R&D engineering budget owned on a single Fortune 500 medical-device portfolio"
+          />
+          <Stat
+            value="100+"
+            label="contributors aligned on a single next-generation combination-product platform"
+          />
+          <Stat
+            value="$80M"
+            label="duplicate development cost avoided through platform consolidation"
+          />
         </dl>
       </Section>
 
@@ -55,7 +65,7 @@ export default function HomePage() {
       <Section bordered>
         <div className="grid gap-10 sm:grid-cols-[1.2fr,1fr]">
           <div>
-            <p className="eyebrow">Recent work</p>
+            <p className="eyebrow">Representative engagements</p>
             <h2 className="mt-3 text-3xl">
               The kinds of problems Hitmaker Engineering moves the needle on.
             </h2>
@@ -68,8 +78,9 @@ export default function HomePage() {
           </div>
           <ul className="space-y-5 text-ink-700">
             <Bullet>
-              Consolidated two diverging platform programs into one focused
-              system, avoiding ~$80M in duplicate development cost.
+              Consolidated two diverging platform programs at a Fortune 500
+              medical-device company into one focused system, avoiding ~$80M
+              in duplicate development cost.
             </Bullet>
             <Bullet>
               Negotiated combination-product regulatory strategy with FDA SMEs,
