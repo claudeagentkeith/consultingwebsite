@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with Hitmaker Engineering about a medical device or combination product engagement.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact · Hitmaker Engineering",
+    description:
+      "Most engagements start with a one-hour scoping call. Tell us what the program needs.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

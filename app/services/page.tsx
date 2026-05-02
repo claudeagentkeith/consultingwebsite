@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Design engineering, program leadership, regulatory & quality, and combination product consulting for medical device and pharma teams.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services · Hitmaker Engineering",
+    description:
+      "Design engineering, program leadership, regulatory & quality, and combination product consulting.",
+    url: "/services",
+    type: "website",
+  },
 };
 
 const services = [
