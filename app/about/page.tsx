@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Hitmaker Engineering is a senior consulting practice for medical devices and combination products. PE, LSS, and PMP credentialed; deep fluency in 21 CFR 820/Part 4, ISO 13485/14971, and IEC 62366.",
+    "Hitmaker Engineering is a senior consulting practice for medical devices and combination products. PE, LSS, and PMP credentialed.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About · Hitmaker Engineering",

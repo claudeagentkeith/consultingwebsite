@@ -11,7 +11,7 @@ import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 const SLUG = "/services/regulatory-quality";
 const TITLE = "Regulatory & Quality Consulting (FDA 21 CFR 820, ISO 13485)";
 const DESCRIPTION =
-  "Senior regulatory and quality consulting for medical device and combination product companies — design controls, risk management, FDA strategy, and audit readiness.";
+  "Senior regulatory and quality consulting for medical device and combination product teams — design controls, ISO 14971 risk, FDA strategy, audit readiness.";
 
 export const metadata: Metadata = {
   title: "Regulatory & Quality Consulting",

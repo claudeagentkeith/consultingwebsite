@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s · Hitmaker Engineering",
   },
   description:
-    "Senior consulting engineering for medical devices and combination products. Design controls, regulatory strategy, and program leadership from concept through commercialization.",
+    "Senior engineering consulting for medical devices and combination products — design controls, regulatory strategy, and program leadership.",
   applicationName: "Hitmaker Engineering",
   keywords: [
     "medical device consulting",

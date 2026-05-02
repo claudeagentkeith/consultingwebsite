@@ -11,7 +11,7 @@ import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 const SLUG = "/services/design-engineering";
 const TITLE = "Medical Device Design Engineering";
 const DESCRIPTION =
-  "Mechanical, optical, and systems design engineering for medical devices and combination products — architecture, design-for-manufacture, and design controls integration.";
+  "Mechanical, optical, and systems design engineering for medical devices — architecture trade studies through design-for-manufacture, with design controls.";
 
 export const metadata: Metadata = {
   title: "Design Engineering",

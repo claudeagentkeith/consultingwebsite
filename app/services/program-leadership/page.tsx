@@ -11,7 +11,7 @@ import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 const SLUG = "/services/program-leadership";
 const TITLE = "Program Leadership for Medical Device Programs";
 const DESCRIPTION =
-  "Senior, PMP-credentialed program leadership for cross-functional medical device and combination product programs — stage-gate governance, integration, and recovery.";
+  "PMP-credentialed program leadership for medical device and combination product programs — stage-gate governance, integration, and recovery.";
 
 export const metadata: Metadata = {
   title: "Program Leadership",
