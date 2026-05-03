@@ -9,37 +9,40 @@ const SITE_URL = "https://hitmakerengineering.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Hitmaker Engineering — medical device & combination product consulting",
+    default: "Hitmaker Engineering — end-to-end product development for medical devices & combination products",
     template: "%s · Hitmaker Engineering",
   },
   description:
-    "Senior engineering consulting for medical devices and combination products — design controls, regulatory strategy, and program leadership.",
+    "End-to-end product development for medical devices and combination products — user research, ideation, engineering, design controls, manufacturing transfer, launch, and sustaining support.",
   applicationName: "Hitmaker Engineering",
   keywords: [
     "medical device consulting",
     "combination products consulting",
+    "medical device product development",
+    "user research medical device",
+    "design controls",
     "21 CFR 820",
     "21 CFR Part 4",
     "ISO 13485",
     "ISO 14971",
     "IEC 62366",
-    "medical device program management",
-    "human-centered design medical device",
+    "manufacturing transfer medical device",
+    "sustaining engineering medical device",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: "Hitmaker Engineering",
-    title: "Hitmaker Engineering — medical device & combination product consulting",
+    title: "Hitmaker Engineering — end-to-end product development for medical devices & combination products",
     description:
-      "Senior consulting engineering for medical devices and combination products.",
+      "End-to-end product development for medical-device and combination-product teams — from user research and ideation through engineering, design controls, manufacturing transfer, launch, and sustaining.",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Hitmaker Engineering — medical device and combination product consulting",
+        alt: "Hitmaker Engineering — end-to-end product development for medical devices and combination products",
       },
     ],
   },
@@ -47,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hitmaker Engineering",
     description:
-      "Senior consulting engineering for medical devices and combination products.",
+      "End-to-end product development for medical-device and combination-product teams — from user research and ideation through engineering, design controls, manufacturing transfer, launch, and sustaining.",
     images: ["/opengraph-image"],
   },
   robots: {

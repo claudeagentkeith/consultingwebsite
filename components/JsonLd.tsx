@@ -18,7 +18,7 @@ export function OrganizationJsonLd() {
     logo: `${SITE_URL}/icon.svg`,
     image: `${SITE_URL}/opengraph-image`,
     description:
-      "Senior consulting engineering for medical devices and combination products. Design controls, regulatory & quality (FDA 21 CFR 820/Part 4, ISO 13485, ISO 14971, IEC 62366), program leadership, and human-centered design.",
+      "End-to-end product development for medical devices and combination products. User research, ideation, design and engineering, design controls and risk management (FDA 21 CFR 820/Part 4, ISO 13485, ISO 14971, IEC 62366), manufacturing transfer and commercialization, and sustaining engineering.",
     areaServed: { "@type": "Country", name: "United States" },
     serviceType: [
       "Medical Device Design Engineering",

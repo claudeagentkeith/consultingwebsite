@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "Hitmaker Engineering — medical device and combination product consulting";
+  "Hitmaker Engineering — end-to-end product development for medical devices and combination products";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -56,25 +56,26 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <div
             style={{
-              fontSize: "72px",
+              fontSize: "64px",
               fontWeight: 600,
               lineHeight: 1.05,
               letterSpacing: "-0.03em",
               maxWidth: "1000px",
             }}
           >
-            Senior engineering for medical devices and combination products.
+            End-to-end product development for medical devices and combination
+            products.
           </div>
           <div
             style={{
-              fontSize: "28px",
+              fontSize: "26px",
               color: "#414b58",
               lineHeight: 1.3,
-              maxWidth: "900px",
+              maxWidth: "960px",
             }}
           >
-            Design controls · regulatory & quality (FDA 21 CFR 820/Part 4, ISO
-            13485/14971, IEC 62366) · program leadership.
+            User research · ideation · engineering · design controls ·
+            manufacturing transfer · launch · sustaining.
           </div>
         </div>
 
