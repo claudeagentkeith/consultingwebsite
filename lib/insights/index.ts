@@ -11,6 +11,7 @@ import type { FaqItem } from "@/components/JsonLd";
 
 import * as breakdown from "./articles/why-medical-device-development-breaks-down";
 import * as cfrPart4 from "./articles/21-cfr-part-4-where-combination-products-stall";
+import * as userResearchToReqs from "./articles/user-research-to-verifiable-requirements";
 import * as iso14971 from "./articles/iso-14971-risk-file-architecture";
 
 export type InsightStatus = "draft" | "published";
@@ -48,7 +49,7 @@ export type ArticleModule = {
   };
 };
 
-const articles: ArticleModule[] = [breakdown, cfrPart4, iso14971];
+const articles: ArticleModule[] = [breakdown, cfrPart4, userResearchToReqs, iso14971];
 
 export const insights: Insight[] = articles.map((a) => a.meta);
 
