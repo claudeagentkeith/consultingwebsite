@@ -208,6 +208,108 @@ export default function AboutPage() {
       </Section>
 
       <Section bordered>
+        <p className="eyebrow">Recent activity</p>
+        <h2 className="mt-3 max-w-3xl text-3xl">
+          Recent engagements, talks, and writing
+        </h2>
+        <p className="mt-4 max-w-2xl text-ink-600">
+          A working list of where the firm has shown up — published writing,
+          industry talks, and notable engagements. Updated as activity
+          accumulates.
+        </p>
+
+        <div className="mt-10 grid gap-12 sm:grid-cols-3">
+          <div>
+            <h3 className="text-base font-semibold text-ink-900">
+              Published writing
+            </h3>
+            <ul className="mt-4 space-y-3 text-sm text-ink-700">
+              <li>
+                <Link
+                  href="/insights/why-medical-device-development-breaks-down"
+                  className="text-ink-900 no-underline hover:underline"
+                >
+                  Why medical device development breaks down between user
+                  needs, engineering, and manufacturing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights/21-cfr-part-4-where-combination-products-stall"
+                  className="text-ink-900 no-underline hover:underline"
+                >
+                  21 CFR Part 4 in practice: where combination-product programs
+                  actually stall
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights/user-research-to-verifiable-requirements"
+                  className="text-ink-900 no-underline hover:underline"
+                >
+                  From user research to verifiable design inputs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights/manufacturing-transfer-readiness"
+                  className="text-ink-900 no-underline hover:underline"
+                >
+                  Manufacturing transfer readiness: 12 things most teams miss
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights/design-controls-that-survive-audit"
+                  className="text-ink-900 no-underline hover:underline"
+                >
+                  Design controls that survive audit
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/insights/sustaining-engineering-cost-vs-risk"
+                  className="text-ink-900 no-underline hover:underline"
+                >
+                  Sustaining engineering: cost vs. regulatory risk
+                </Link>
+              </li>
+            </ul>
+            <p className="mt-4 text-sm">
+              <Link
+                href="/insights"
+                className="font-medium text-ink-900 no-underline hover:underline"
+              >
+                All insights →
+              </Link>
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-base font-semibold text-ink-900">
+              Industry talks &amp; conferences
+            </h3>
+            <p className="mt-4 text-sm text-ink-600">
+              Coming soon. We are submitting abstracts to BIOMEDevice, MD&amp;M,
+              RAPS Convergence, and AAMI Exchange for the upcoming cycle.
+              Accepted talks will be listed here.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-base font-semibold text-ink-900">
+              Notable engagements
+            </h3>
+            <p className="mt-4 text-sm text-ink-600">
+              Many of our engagements are under NDA and cannot be named
+              publicly. Where clients have given permission, brief case
+              summaries will be listed here.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section bordered>
         <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-ink-100 bg-ink-50 p-8 sm:flex-row sm:items-center sm:p-10">
           <div className="max-w-xl">
             <h2 className="text-2xl">Working on a regulated product?</h2>
