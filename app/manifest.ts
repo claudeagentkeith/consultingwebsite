@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Hitmaker Engineering",
     short_name: "Hitmaker",
     description:
-      "Senior consulting engineering for medical devices and combination products.",
+      "End-to-end product development for medical devices and combination products — research, engineering, design controls, manufacturing transfer, launch, and sustaining.",
     start_url: "/",
     display: "browser",
     background_color: "#ffffff",
