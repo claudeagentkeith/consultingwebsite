@@ -13,6 +13,7 @@ import * as breakdown from "./articles/why-medical-device-development-breaks-dow
 import * as cfrPart4 from "./articles/21-cfr-part-4-where-combination-products-stall";
 import * as userResearchToReqs from "./articles/user-research-to-verifiable-requirements";
 import * as mfgTransfer from "./articles/manufacturing-transfer-readiness";
+import * as designControlsAudit from "./articles/design-controls-that-survive-audit";
 import * as iso14971 from "./articles/iso-14971-risk-file-architecture";
 
 export type InsightStatus = "draft" | "published";
@@ -55,6 +56,7 @@ const articles: ArticleModule[] = [
   cfrPart4,
   userResearchToReqs,
   mfgTransfer,
+  designControlsAudit,
   iso14971,
 ];
 
