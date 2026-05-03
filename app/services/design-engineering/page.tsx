@@ -9,12 +9,12 @@ import {
 import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 
 const SLUG = "/services/design-engineering";
-const TITLE = "Medical Device Design Engineering";
+const TITLE = "Design Engineering & Development for Medical Devices";
 const DESCRIPTION =
-  "Mechanical, optical, and systems design engineering for medical devices — architecture trade studies through design-for-manufacture, with design controls.";
+  "Design engineering and development for medical-device and combination-product teams — system architecture, mechanical/fluidic/optical design, requirements, prototyping, and verification strategy.";
 
 export const metadata: Metadata = {
-  title: "Design Engineering",
+  title: "Design Engineering & Development",
   description: DESCRIPTION,
   alternates: { canonical: SLUG },
   openGraph: {
@@ -27,28 +27,24 @@ export const metadata: Metadata = {
 
 const faqs: FaqEntry[] = [
   {
-    question:
-      "What disciplines does design engineering cover?",
+    question: "What disciplines does design engineering cover?",
     answer:
-      "Mechanical, optical, fluidics, and systems engineering for instruments, consumables, and combination products — with adjacent fluency in firmware, software, and biology/chemistry interfaces. We are typically the senior engineering judgment on architecture and integration decisions.",
+      "Mechanical, optical, fluidics, and systems engineering for instruments, consumables, and combination products — with adjacent fluency in firmware, software, and biology/chemistry interfaces. The principals have led design engineering at unit volumes ranging from prototype quantities through hundreds of thousands of units per year.",
   },
   {
-    question:
-      "Can you take a program from concept through DFM?",
+    question: "Can you take a program from concept through verification?",
     answer:
-      "Yes. Architecture trade studies, breadboard and prototype, design-for-reliability, FMEA, GD&T, design-for-manufacture, and tooling readiness — coordinated with the regulatory and quality workstreams so design controls produce real evidence rather than retrospective documentation.",
+      "Yes. System architecture, breadboard and prototype, design-for-reliability, FMEA, GD&T, and verification protocols — coordinated with the design controls and risk management workstreams so design controls produce real evidence rather than retrospective documentation.",
   },
   {
-    question:
-      "Do you work with internal teams or external partners?",
+    question: "How are requirements developed and traced?",
     answer:
-      "Both. We embed with internal engineering when the program needs senior judgment in the room. We also work alongside contract manufacturers and design houses when the program is run by external partners and the firm needs an independent technical owner.",
+      "Requirements are developed alongside design rather than waterfalled in front of it. Design inputs trace from user needs and use specification through subsystem requirements, into design outputs, and onward to verification protocols. The traceability is structured for ISO 13485 / 21 CFR 820 design controls from the start, not bolted on later.",
   },
   {
-    question:
-      "What scale of programs do you support?",
+    question: "Do you work with internal teams or external partners?",
     answer:
-      "Programs from early-stage architecture through commercial scale. The firm's principals have led design engineering at unit volumes ranging from prototype quantities through hundreds of thousands of units per year.",
+      "Both. We embed with internal engineering when the program needs senior technical leadership in the room. We also work alongside contract manufacturers and design houses when the program is run by external partners and the firm needs an independent technical owner.",
   },
 ];
 
@@ -59,29 +55,30 @@ export default function DesignEngineeringPage() {
         items={[
           { name: "Home", url: "/" },
           { name: "Services", url: "/services" },
-          { name: "Design Engineering", url: SLUG },
+          { name: "Design Engineering & Development", url: SLUG },
         ]}
       />
       <ServiceJsonLd
         name={TITLE}
         slug={SLUG}
         description={DESCRIPTION}
-        serviceType="Medical Device Design Engineering"
+        serviceType="Design Engineering and Development"
       />
       <FaqJsonLd
         items={faqs.map((f) => ({ question: f.question, answer: f.answer }))}
       />
 
       <Section className="pt-20">
-        <p className="eyebrow">Services · Design Engineering</p>
+        <p className="eyebrow">Services · Phase 3</p>
         <h1 className="mt-4 max-w-3xl text-4xl sm:text-5xl">
-          Senior design engineering for medical devices and combination
-          products.
+          Design engineering and development for medical devices and
+          combination products.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-ink-600">
-          Mechanical, optical, fluidics, and systems engineering — from
-          architecture trade studies through design-for-manufacture, with
-          design controls and risk management integrated from day one.
+          Develop the mechanisms, systems, requirements, prototypes, and
+          technical solutions that turn product concepts into manufacturable,
+          regulated products — with design controls and risk management
+          integrated from day one.
         </p>
       </Section>
 
@@ -91,21 +88,21 @@ export default function DesignEngineeringPage() {
             <h2 className="text-2xl">When teams call us in</h2>
             <ul className="mt-5 space-y-3 text-ink-700">
               <Bullet>
-                A platform program needs a senior architecture call before a
-                lot of downstream work commits.
+                A platform program needs an architecture call before downstream
+                work commits.
               </Bullet>
               <Bullet>
-                Manufacturing readiness is uncertain and the design needs a
-                hard DFM pass before tooling investment.
-              </Bullet>
-              <Bullet>
-                A novel mechanism — pump, valve, optical path — needs senior
-                engineering judgment that the cheaper-faster trade space
-                actually closes.
+                A novel mechanism — pump, valve, optical path, microfluidic
+                system — needs cross-functional engineering judgment to close
+                the cheaper-faster trade space.
               </Bullet>
               <Bullet>
                 Design-controls artifacts and engineering reality have drifted
                 apart and need to be re-aligned.
+              </Bullet>
+              <Bullet>
+                Manufacturing readiness is uncertain and the design needs a
+                hard DFM pass before tooling investment.
               </Bullet>
             </ul>
           </div>
@@ -114,20 +111,20 @@ export default function DesignEngineeringPage() {
             <h2 className="text-2xl">How we approach it</h2>
             <ul className="mt-5 space-y-3 text-ink-700">
               <Bullet>
-                Architecture before optimization — the right system topology
-                makes the rest of engineering cheap.
+                System-level architecture first, with explicit subsystem
+                interfaces and an integration plan.
+              </Bullet>
+              <Bullet>
+                Requirements developed alongside design — design inputs
+                engineering can actually verify.
               </Bullet>
               <Bullet>
                 Design-for-reliability and FMEA driven by ISO 14971 hazard
                 analysis, not done as a parallel exercise.
               </Bullet>
               <Bullet>
-                GD&amp;T discipline tied to actual function — not just
-                drawing-package compliance.
-              </Bullet>
-              <Bullet>
-                Manufacturing readiness measured in tooling, fixturing, and
-                process capability — not just geometry on a drawing.
+                Verification strategy designed up front, not improvised under
+                a milestone.
               </Bullet>
             </ul>
           </div>
@@ -137,12 +134,18 @@ export default function DesignEngineeringPage() {
       <Section bordered>
         <h2 className="text-2xl">Typical deliverables</h2>
         <ul className="mt-5 grid gap-3 text-ink-700 sm:grid-cols-2">
-          <Bullet>Architecture trade study and recommendation memo.</Bullet>
-          <Bullet>System-level requirements decomposition.</Bullet>
+          <Bullet>System architecture and trade studies.</Bullet>
+          <Bullet>
+            Mechanical, fluidic, optical, and systems design.
+          </Bullet>
+          <Bullet>System and subsystem requirements decomposition.</Bullet>
+          <Bullet>
+            Engineering prototypes and breadboards tied to design verification.
+          </Bullet>
           <Bullet>FMEA aligned to ISO 14971 risk management.</Bullet>
-          <Bullet>GD&amp;T strategy and critical-to-quality (CTQ) flow-down.</Bullet>
-          <Bullet>Design-for-manufacture review and remediation plan.</Bullet>
-          <Bullet>Verification and validation plan tied to design inputs and outputs.</Bullet>
+          <Bullet>
+            Verification strategy, protocols, and design output package.
+          </Bullet>
         </ul>
       </Section>
 
@@ -174,30 +177,30 @@ function Bullet({ children }: { children: React.ReactNode }) {
 function CrossLinks() {
   return (
     <Section bordered>
-      <p className="eyebrow">Related services</p>
+      <p className="eyebrow">Adjacent phases</p>
       <ul className="mt-4 grid gap-4 sm:grid-cols-3">
         <li>
           <Link
-            href="/services/regulatory-quality"
+            href="/services/ideation-strategy"
             className="text-ink-900 no-underline hover:underline"
           >
-            Regulatory &amp; quality consulting →
+            Ideation &amp; product strategy →
           </Link>
         </li>
         <li>
           <Link
-            href="/services/program-leadership"
+            href="/services/design-controls"
             className="text-ink-900 no-underline hover:underline"
           >
-            Program leadership →
+            Regulatory, quality &amp; design controls →
           </Link>
         </li>
         <li>
           <Link
-            href="/services/human-centered-design"
+            href="/services/manufacturing-transfer"
             className="text-ink-900 no-underline hover:underline"
           >
-            Human-centered design (IEC 62366) →
+            Manufacturing transfer &amp; commercialization →
           </Link>
         </li>
       </ul>
@@ -211,14 +214,15 @@ function CtaBlock() {
       <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-ink-100 bg-ink-50 p-8 sm:flex-row sm:items-center sm:p-10">
         <div className="max-w-xl">
           <h2 className="text-2xl">
-            Have a design engineering call that needs senior judgment?
+            Working on a design engineering challenge?
           </h2>
           <p className="mt-2 text-ink-600">
-            Engagements typically start with a one-hour scoping call.
+            Engagements typically start with a scoping call to map where the
+            program is in the lifecycle and the decision you are facing.
           </p>
         </div>
         <Link href="/contact" className="btn">
-          Start a conversation
+          Start a Product Development Conversation
         </Link>
       </div>
     </Section>

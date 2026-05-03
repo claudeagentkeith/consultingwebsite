@@ -19,12 +19,13 @@ Visit http://localhost:3000.
 | Path                              | Source                                          |
 |-----------------------------------|-------------------------------------------------|
 | `/`                               | `app/page.tsx`                                  |
-| `/services`                       | `app/services/page.tsx` (hub linking to 5 sub-pages) |
-| `/services/regulatory-quality`    | `app/services/regulatory-quality/page.tsx`      |
-| `/services/program-leadership`    | `app/services/program-leadership/page.tsx`      |
-| `/services/combination-products`  | `app/services/combination-products/page.tsx`    |
-| `/services/design-engineering`    | `app/services/design-engineering/page.tsx`      |
-| `/services/human-centered-design` | `app/services/human-centered-design/page.tsx`   |
+| `/services`                       | `app/services/page.tsx` (hub + productized engagement cards) |
+| `/services/user-research`         | `app/services/user-research/page.tsx` (Phase 1) |
+| `/services/ideation-strategy`     | `app/services/ideation-strategy/page.tsx` (Phase 2) |
+| `/services/design-engineering`    | `app/services/design-engineering/page.tsx` (Phase 3) |
+| `/services/design-controls`       | `app/services/design-controls/page.tsx` (Phase 4) |
+| `/services/manufacturing-transfer`| `app/services/manufacturing-transfer/page.tsx` (Phase 5) |
+| `/services/sustaining-engineering`| `app/services/sustaining-engineering/page.tsx` (Phase 6) |
 | `/about`                          | `app/about/page.tsx`                            |
 | `/insights`                       | `app/insights/page.tsx` (index)                 |
 | `/insights/[slug]`                | `app/insights/[slug]/page.tsx` (per-article)    |
@@ -87,9 +88,13 @@ Reusable Server Components in `components/JsonLd.tsx`:
 ### Robots / sitemap / IndexNow
 
 - `app/robots.ts` allows all, disallows `/api/` and `/draft/`.
-- `app/sitemap.ts` enumerates 10 static URLs (home, 5 service pages, hub,
-  `/insights` index, `/about`, `/contact`) plus any **published** insights.
-  Drafts are excluded.
+- `app/sitemap.ts` enumerates 11 static URLs (home, `/services` hub, 6
+  lifecycle-phase service pages, `/insights` index, `/about`, `/contact`)
+  plus any **published** insights. Drafts are excluded.
+- `next.config.mjs` 308-redirects the previous functional-silo service
+  slugs (`regulatory-quality`, `combination-products`, `program-leadership`,
+  `human-centered-design`) into the new lifecycle structure to preserve
+  inbound links.
 - IndexNow key file at `public/ce111e934638afe3581e4a9ccf321c50.txt`. Submit
   with `npm run indexnow` (see below).
 
@@ -164,9 +169,10 @@ auto-completed by the agent. Listed in rough ROI order:
 
 1. ~~**Google Search Console**~~ ✅ **Done** — URL-prefix property
    `https://hitmakerengineering.com/` verified via HTML-tag method
-   (`metadata.verification.google` in `app/layout.tsx`). Sitemap submitted;
-   `Status: Success / 10 pages discovered`. Indexing requested on home + 5
-   service pages + the `/services` hub.
+   (`metadata.verification.google` in `app/layout.tsx`). Sitemap submitted.
+   After the lifecycle-phase restructure, re-request indexing on the new
+   service slugs and verify the 308 redirects from the old slugs are
+   discovered.
 2. **Bing Webmaster Tools** — add site, choose **Import from GSC** for
    one-click setup. Confirms the IndexNow key file is reachable.
 3. **LinkedIn Company Page** + a founding announcement post linking to

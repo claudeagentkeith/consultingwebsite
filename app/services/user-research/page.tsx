@@ -8,13 +8,13 @@ import {
 } from "@/components/JsonLd";
 import ServiceFaq, { type FaqEntry } from "@/components/ServiceFaq";
 
-const SLUG = "/services/human-centered-design";
-const TITLE = "Human-Centered Design (IEC 62366) for Medical Devices";
+const SLUG = "/services/user-research";
+const TITLE = "User Research & Human-Centered Design for Medical Devices";
 const DESCRIPTION =
-  "Human-centered design and human factors engineering under IEC 62366 — use specification, use-related risk analysis, and formative-to-summative evaluation.";
+  "User research and human-centered design for medical-device and combination-product teams — workflow research, user needs, usability strategy, use-related risk, and IEC 62366 evidence.";
 
 export const metadata: Metadata = {
-  title: "Human-Centered Design",
+  title: "User Research & Human-Centered Design",
   description: DESCRIPTION,
   alternates: { canonical: SLUG },
   openGraph: {
@@ -27,62 +27,57 @@ export const metadata: Metadata = {
 
 const faqs: FaqEntry[] = [
   {
-    question:
-      "What is IEC 62366 and how does it fit with ISO 14971?",
+    question: "What does user research cover at the front of the lifecycle?",
     answer:
-      "IEC 62366-1 specifies a usability engineering process for medical devices; IEC 62366-2 is the application guidance. Both feed into the ISO 14971 risk management file via use-related risk analysis (URRA). In practice, getting the use specification, user-interface specification, and usability evaluation plan to integrate cleanly with hazard analysis is what separates a usable evidence package from a rework cycle.",
+      "Workflow and contextual research with the actual users in the actual environments — clinicians, technicians, patients, lay users — to identify needs, pain points, decision points, and use scenarios. Research is structured to feed design inputs, the use specification, and the use-related risk analysis, not to sit as standalone qualitative findings.",
   },
   {
-    question:
-      "What is the difference between formative and summative evaluations?",
+    question: "How does this work integrate with IEC 62366 and ISO 14971?",
+    answer:
+      "IEC 62366-1 specifies the usability engineering process; ISO 14971 governs risk management. In practice, the use specification, user-interface specification, and use-related risk analysis (URRA) need to integrate cleanly with hazard analysis. We treat URRA as a peer to the broader hazard analysis, not a downstream artifact, so summative results land cleanly.",
+  },
+  {
+    question: "What is the difference between formative and summative evaluations?",
     answer:
       "Formative evaluations happen iteratively during development to identify use-errors and refine the user interface. Summative evaluations happen on the validation build and demonstrate that critical tasks can be performed correctly under representative use. Skipping formative work, or running summative on an unfrozen design, is the most common reason summative results don't hold up.",
   },
   {
-    question:
-      "Do you run usability studies in-house?",
-    answer:
-      "We design and supervise usability studies and integrate them with the broader human-factors and design-controls programs. We typically partner with specialized usability test facilities for actual study execution, but the methodology, protocol, and connection to the risk file are owned by the firm.",
-  },
-  {
-    question:
-      "Combination products — is the human factors evidence different?",
+    question: "Combination products — is the human-factors evidence different?",
     answer:
       "Yes. FDA expects combination products to demonstrate that the user can correctly perform critical tasks across both constituents. URRA and the use specification need to span the whole use scenario, including the drug constituent's preparation and administration steps where applicable.",
   },
 ];
 
-export default function HumanCenteredDesignPage() {
+export default function UserResearchPage() {
   return (
     <>
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "/" },
           { name: "Services", url: "/services" },
-          { name: "Human-Centered Design", url: SLUG },
+          { name: "User Research & Human-Centered Design", url: SLUG },
         ]}
       />
       <ServiceJsonLd
         name={TITLE}
         slug={SLUG}
         description={DESCRIPTION}
-        serviceType="Human-Centered Design"
+        serviceType="User Research and Human-Centered Design"
       />
       <FaqJsonLd
         items={faqs.map((f) => ({ question: f.question, answer: f.answer }))}
       />
 
       <Section className="pt-20">
-        <p className="eyebrow">Services · Human-Centered Design</p>
+        <p className="eyebrow">Services · Phase 1</p>
         <h1 className="mt-4 max-w-3xl text-4xl sm:text-5xl">
-          Human-centered design and IEC 62366 usability engineering for
-          medical devices.
+          User research and human-centered design for medical devices and
+          combination products.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-ink-600">
-          Senior human-factors and human-centered design consulting for
-          medical device and combination product programs. Use specification,
-          use-related risk analysis, formative and summative evaluation, and
-          tight integration with the ISO 14971 risk management file.
+          Identify user needs, workflows, and use-related risks early — and
+          translate them into product direction, design inputs, and IEC 62366
+          evidence that holds up downstream.
         </p>
       </Section>
 
@@ -92,21 +87,19 @@ export default function HumanCenteredDesignPage() {
             <h2 className="text-2xl">When teams call us in</h2>
             <ul className="mt-5 space-y-3 text-ink-700">
               <Bullet>
+                Early user research needs to become a clear product direction.
+              </Bullet>
+              <Bullet>
                 A combination product is approaching summative evaluation and
                 the use-related risk file is not yet aligned with IEC 62366.
               </Bullet>
               <Bullet>
-                A submission reviewer has flagged the human factors evidence
-                package and remediation needs to land before the next round.
-              </Bullet>
-              <Bullet>
-                A new device is being scoped and the team wants
-                human-centered design embedded from the architecture stage,
-                not retrofitted near validation.
-              </Bullet>
-              <Bullet>
                 Customer and user research needs to be calibrated into design
                 inputs, not just left as qualitative findings.
+              </Bullet>
+              <Bullet>
+                A submission reviewer has flagged the human-factors evidence
+                package and remediation needs to land before the next round.
               </Bullet>
             </ul>
           </div>
@@ -115,12 +108,13 @@ export default function HumanCenteredDesignPage() {
             <h2 className="text-2xl">How we approach it</h2>
             <ul className="mt-5 space-y-3 text-ink-700">
               <Bullet>
-                Use specification first — clear users, environments, and use
-                scenarios before user-interface decisions.
+                Field and contextual research first — clear users,
+                environments, and use scenarios before user-interface
+                decisions.
               </Bullet>
               <Bullet>
-                Use-related risk analysis (URRA) as a peer to the broader
-                hazard analysis, not a downstream artifact.
+                Use-related risk analysis (URRA) as a peer to broader hazard
+                analysis, not a downstream artifact.
               </Bullet>
               <Bullet>
                 Formative evaluation as a design feedback loop, not a
@@ -138,14 +132,17 @@ export default function HumanCenteredDesignPage() {
       <Section bordered>
         <h2 className="text-2xl">Typical deliverables</h2>
         <ul className="mt-5 grid gap-3 text-ink-700 sm:grid-cols-2">
+          <Bullet>Field research and workflow mapping.</Bullet>
           <Bullet>Use specification (IEC 62366-1).</Bullet>
           <Bullet>User-interface specification.</Bullet>
           <Bullet>
             Use-related risk analysis (URRA) integrated with the ISO 14971
             risk management file.
           </Bullet>
-          <Bullet>Formative evaluation plan, protocols, and analysis.</Bullet>
-          <Bullet>Summative usability evaluation plan and protocol.</Bullet>
+          <Bullet>
+            Formative and summative evaluation plans, protocols, and
+            analysis.
+          </Bullet>
           <Bullet>Human factors engineering report (HFE/UE report).</Bullet>
         </ul>
       </Section>
@@ -178,22 +175,14 @@ function Bullet({ children }: { children: React.ReactNode }) {
 function CrossLinks() {
   return (
     <Section bordered>
-      <p className="eyebrow">Related services</p>
+      <p className="eyebrow">Adjacent phases</p>
       <ul className="mt-4 grid gap-4 sm:grid-cols-3">
         <li>
           <Link
-            href="/services/combination-products"
+            href="/services/ideation-strategy"
             className="text-ink-900 no-underline hover:underline"
           >
-            Combination products consulting →
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/services/regulatory-quality"
-            className="text-ink-900 no-underline hover:underline"
-          >
-            Regulatory &amp; quality consulting →
+            Ideation &amp; product strategy →
           </Link>
         </li>
         <li>
@@ -201,7 +190,15 @@ function CrossLinks() {
             href="/services/design-engineering"
             className="text-ink-900 no-underline hover:underline"
           >
-            Medical device design engineering →
+            Design engineering &amp; development →
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/services/design-controls"
+            className="text-ink-900 no-underline hover:underline"
+          >
+            Regulatory, quality &amp; design controls →
           </Link>
         </li>
       </ul>
@@ -215,14 +212,16 @@ function CtaBlock() {
       <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-ink-100 bg-ink-50 p-8 sm:flex-row sm:items-center sm:p-10">
         <div className="max-w-xl">
           <h2 className="text-2xl">
-            Need IEC 62366 evidence that holds up?
+            Need user research or HFE evidence that holds up?
           </h2>
           <p className="mt-2 text-ink-600">
-            Engagements typically start with a one-hour scoping call.
+            Engagements typically start with a scoping call to map where the
+            product is in the lifecycle and the timeline you are working
+            toward.
           </p>
         </div>
         <Link href="/contact" className="btn">
-          Start a conversation
+          Start a Product Development Conversation
         </Link>
       </div>
     </Section>
