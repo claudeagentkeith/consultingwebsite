@@ -23,6 +23,13 @@ export default function Footer() {
               FAQ
             </Link>
             <a
+              href="https://github.com/claudeagentkeith/hitmaker-engineering-knowledgebase"
+              className="text-ink-600 no-underline transition hover:text-ink-900"
+              rel="me noopener"
+            >
+              Knowledgebase
+            </a>
+            <a
               href="mailto:hello@hitmakerengineering.com"
               className="text-ink-600 no-underline transition hover:text-ink-900"
             >
