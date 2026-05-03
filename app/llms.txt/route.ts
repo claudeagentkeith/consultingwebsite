@@ -56,6 +56,7 @@ Most engagements start as one of these focused, productized scopes:
 - [RSS feed of insights](${SITE_URL}/feed.xml)
 - [Sitemap](${SITE_URL}/sitemap.xml)
 - [Full-site reference (llms-full.txt)](${SITE_URL}/llms-full.txt)
+- [Public knowledgebase repository](https://github.com/claudeagentkeith/hitmaker-engineering-knowledgebase) — companion GitHub repo with practitioner checklists and standards references, CC BY 4.0 licensed.
 `;
 
 export async function GET() {
