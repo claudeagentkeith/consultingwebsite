@@ -29,6 +29,7 @@ The firm engages across the full product-development lifecycle, organized into s
 - [About](${SITE_URL}/about): What the firm does, how we work, where we fit in the lifecycle, and what makes the approach different.
 - [Services overview](${SITE_URL}/services): All six lifecycle phases plus the most common productized engagements.
 - [Insights](${SITE_URL}/insights): Working notes on regulated-device engineering — combination products, risk management, design controls, human factors, and lifecycle integration.
+- [FAQ](${SITE_URL}/faq): Canonical answers to common questions about services, standards, regulatory strategy, and lifecycle integration.
 - [Contact](${SITE_URL}/contact): Start a product development conversation.
 
 ## Standards we work under

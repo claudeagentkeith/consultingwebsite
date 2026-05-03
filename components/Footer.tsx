@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -7,14 +9,26 @@ export default function Footer() {
           <div>
             &copy; {year} Hitmaker Engineering. San Francisco, CA.
           </div>
-          <div className="flex items-center gap-4">
+          <nav aria-label="Footer" className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/insights"
+              className="text-ink-600 no-underline transition hover:text-ink-900"
+            >
+              Insights
+            </Link>
+            <Link
+              href="/faq"
+              className="text-ink-600 no-underline transition hover:text-ink-900"
+            >
+              FAQ
+            </Link>
             <a
               href="mailto:hello@hitmakerengineering.com"
               className="text-ink-600 no-underline transition hover:text-ink-900"
             >
               hello@hitmakerengineering.com
             </a>
-          </div>
+          </nav>
         </div>
         <p className="max-w-3xl text-xs leading-relaxed text-ink-500">
           Because we work in regulated product development, some engagements
