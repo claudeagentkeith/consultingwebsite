@@ -132,8 +132,22 @@ export function ServiceJsonLd({
 
 export type FaqItem = { question: string; answer: string };
 
-export function FaqJsonLd({ items }: { items: FaqItem[] }) {
-  const data = {
+// Optional CSS selectors for Speakable. When provided, the FAQPage emits a
+// SpeakableSpecification so Google Assistant / voice surfaces will read the
+// FAQ aloud. The selectors should target the on-page FAQ content.
+export type SpeakableSelector = {
+  cssSelector?: readonly string[];
+  xpath?: readonly string[];
+};
+
+export function FaqJsonLd({
+  items,
+  speakable,
+}: {
+  items: FaqItem[];
+  speakable?: SpeakableSelector;
+}) {
+  const data: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: items.map((it) => ({
@@ -141,6 +155,145 @@ export function FaqJsonLd({ items }: { items: FaqItem[] }) {
       name: it.question,
       acceptedAnswer: { "@type": "Answer", text: it.answer },
     })),
+  };
+  if (speakable && (speakable.cssSelector?.length || speakable.xpath?.length)) {
+    data.speakable = {
+      "@type": "SpeakableSpecification",
+      ...(speakable.cssSelector?.length
+        ? { cssSelector: [...speakable.cssSelector] }
+        : {}),
+      ...(speakable.xpath?.length ? { xpath: [...speakable.xpath] } : {}),
+    };
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export type ArticleJsonLdProps = {
+  headline: string;
+  description: string;
+  slug: string; // path, e.g. "/insights/article-slug"
+  datePublished: string; // ISO date
+  dateModified?: string; // ISO date
+  keywords?: readonly string[];
+  articleSection?: string;
+  // Optional Speakable specification — adds voice-assistant signal that
+  // certain on-page sections are summary-quality.
+  speakable?: SpeakableSelector;
+};
+
+export function ArticleJsonLd({
+  headline,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  keywords,
+  articleSection,
+  speakable,
+}: ArticleJsonLdProps) {
+  const url = `${SITE_URL}${slug}`;
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    description,
+    url,
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    inLanguage: "en-US",
+    // Author and publisher are both the firm — no personal byline.
+    author: {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "Hitmaker Engineering",
+      url: SITE_URL,
+    },
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: `${SITE_URL}/opengraph-image`,
+  };
+  if (keywords?.length) data.keywords = keywords.join(", ");
+  if (articleSection) data.articleSection = articleSection;
+  if (speakable && (speakable.cssSelector?.length || speakable.xpath?.length)) {
+    data.speakable = {
+      "@type": "SpeakableSpecification",
+      ...(speakable.cssSelector?.length
+        ? { cssSelector: [...speakable.cssSelector] }
+        : {}),
+      ...(speakable.xpath?.length ? { xpath: [...speakable.xpath] } : {}),
+    };
+  }
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export type HowToStep = { name: string; text: string };
+
+export function HowToJsonLd({
+  name,
+  description,
+  steps,
+  totalTime,
+}: {
+  name: string;
+  description: string;
+  steps: readonly HowToStep[];
+  totalTime?: string; // ISO 8601 duration
+}) {
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+  if (totalTime) data.totalTime = totalTime;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+// WebSite schema with SearchAction — gives Google a hint about a site search
+// box and gives AI assistants a structured pointer for "how to query this
+// site". The site itself does not yet host an internal search; we point the
+// SearchAction at Google's site-search URL as a fallback discovery surface
+// that AI tools can call.
+export function WebSiteJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: "Hitmaker Engineering",
+    description:
+      "End-to-end product development for medical devices and combination products.",
+    publisher: { "@id": ORG_ID },
+    inLanguage: "en-US",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `https://www.google.com/search?q=site%3Ahitmakerengineering.com+{search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
   return (
     <script
