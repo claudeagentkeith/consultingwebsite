@@ -21,13 +21,16 @@ export function OrganizationJsonLd() {
       "End-to-end product development for medical devices and combination products. User research, ideation, design and engineering, design controls and risk management (FDA 21 CFR 820/Part 4, ISO 13485, ISO 14971, IEC 62366), manufacturing transfer and commercialization, and sustaining engineering.",
     areaServed: { "@type": "Country", name: "United States" },
     serviceType: [
-      "Medical Device Design Engineering",
-      "Combination Products Consulting",
-      "Regulatory and Quality Consulting",
-      "Program Leadership",
-      "Human-Centered Design",
+      "User Research and Human-Centered Design",
+      "Ideation and Product Strategy",
+      "Design Engineering and Development",
+      "Regulatory, Quality and Design Controls",
+      "Manufacturing Transfer and Commercialization",
+      "Sustaining Engineering and Lifecycle Management",
     ],
     knowsAbout: [
+      "Medical Device Product Development",
+      "Combination Product Development",
       "FDA 21 CFR 820",
       "FDA 21 CFR Part 4",
       "ISO 13485",
@@ -36,6 +39,8 @@ export function OrganizationJsonLd() {
       "Design Controls",
       "Risk Management",
       "Human Factors Engineering",
+      "Manufacturing Transfer",
+      "Sustaining Engineering",
     ],
     hasCredential: [
       {
