@@ -8,6 +8,16 @@ type Status =
   | { kind: "success" }
   | { kind: "error"; message: string };
 
+const PHASES = [
+  "Research",
+  "Ideation",
+  "Engineering",
+  "Design Controls",
+  "Manufacturing Transfer",
+  "Launch",
+  "Sustaining",
+];
+
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -20,6 +30,9 @@ export default function ContactForm() {
     const payload = {
       name: String(data.get("name") || "").trim(),
       email: String(data.get("email") || "").trim(),
+      productType: String(data.get("productType") || "").trim(),
+      developmentPhase: String(data.get("developmentPhase") || "").trim(),
+      timeline: String(data.get("timeline") || "").trim(),
       message: String(data.get("message") || "").trim(),
       // Honeypot — must be empty
       company: String(data.get("company") || "").trim(),
@@ -28,7 +41,8 @@ export default function ContactForm() {
     if (!payload.name || !payload.email || !payload.message) {
       setStatus({
         kind: "error",
-        message: "Please fill in name, email, and a short message.",
+        message:
+          "Please fill in name, email, and a short description of the challenge.",
       });
       return;
     }
@@ -102,8 +116,52 @@ export default function ContactForm() {
         />
       </div>
       <div>
+        <label htmlFor="productType" className="field-label">
+          Product type
+        </label>
+        <input
+          id="productType"
+          name="productType"
+          type="text"
+          className="field-input"
+          placeholder="e.g. drug-delivery device, IVD platform, surgical instrument"
+        />
+      </div>
+      <div>
+        <label htmlFor="developmentPhase" className="field-label">
+          Current development phase
+        </label>
+        <select
+          id="developmentPhase"
+          name="developmentPhase"
+          defaultValue=""
+          className="field-input"
+        >
+          <option value="" disabled>
+            Select a phase…
+          </option>
+          {PHASES.map((p) => (
+            <option key={p} value={p}>
+              {p}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="timeline" className="field-label">
+          Desired timeline
+        </label>
+        <input
+          id="timeline"
+          name="timeline"
+          type="text"
+          className="field-input"
+          placeholder="e.g. scoping in 4 weeks, design freeze in 6 months"
+        />
+      </div>
+      <div>
         <label htmlFor="message" className="field-label">
-          Message
+          Main challenge
         </label>
         <textarea
           id="message"
@@ -111,9 +169,10 @@ export default function ContactForm() {
           rows={6}
           required
           className="field-input"
-          placeholder="A few sentences on the program, the question, and the timeline."
+          placeholder="A few sentences on the decision or challenge in front of you. Please avoid sharing confidential technical details until an NDA is in place."
         />
       </div>
+
       {/* Honeypot field — hidden from real users */}
       <div aria-hidden="true" className="absolute left-[-10000px] h-0 w-0 overflow-hidden">
         <label htmlFor="company">Company</label>
@@ -126,13 +185,15 @@ export default function ContactForm() {
         </p>
       )}
 
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4">
         <button
           type="submit"
           className="btn"
           disabled={status.kind === "submitting"}
         >
-          {status.kind === "submitting" ? "Sending..." : "Send message"}
+          {status.kind === "submitting"
+            ? "Sending..."
+            : "Request a Product Development Scoping Call"}
         </button>
         <p className="text-xs text-ink-500">
           We&apos;ll only use your email to reply.

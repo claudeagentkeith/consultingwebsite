@@ -7,6 +7,9 @@ type Payload = {
   name?: string;
   email?: string;
   message?: string;
+  productType?: string;
+  developmentPhase?: string;
+  timeline?: string;
   company?: string;
 };
 
@@ -37,10 +40,13 @@ export async function POST(req: Request) {
   const name = (body.name || "").trim().slice(0, 200);
   const email = (body.email || "").trim().slice(0, 200);
   const message = (body.message || "").trim().slice(0, 5000);
+  const productType = (body.productType || "").trim().slice(0, 200);
+  const developmentPhase = (body.developmentPhase || "").trim().slice(0, 100);
+  const timeline = (body.timeline || "").trim().slice(0, 200);
 
   if (!name || !email || !message) {
     return NextResponse.json(
-      { error: "Name, email, and message are required." },
+      { error: "Name, email, and a description of the challenge are required." },
       { status: 400 },
     );
   }
@@ -65,15 +71,37 @@ export async function POST(req: Request) {
 
   const resend = new Resend(apiKey);
 
-  const subject = `Hitmaker Engineering — message from ${name}`;
+  const subject = `Hitmaker Engineering — scoping request from ${name}`;
   const text = [
     `From: ${name} <${email}>`,
+    productType ? `Product type: ${productType}` : null,
+    developmentPhase ? `Current development phase: ${developmentPhase}` : null,
+    timeline ? `Desired timeline: ${timeline}` : null,
     "",
+    "Main challenge:",
     message,
-  ].join("\n");
+  ]
+    .filter((line): line is string => line !== null)
+    .join("\n");
+
+  const metaRows = [
+    productType
+      ? `<p><strong>Product type:</strong> ${escapeHtml(productType)}</p>`
+      : "",
+    developmentPhase
+      ? `<p><strong>Current development phase:</strong> ${escapeHtml(developmentPhase)}</p>`
+      : "",
+    timeline
+      ? `<p><strong>Desired timeline:</strong> ${escapeHtml(timeline)}</p>`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("");
 
   const html = [
     `<p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>`,
+    metaRows,
+    `<p><strong>Main challenge:</strong></p>`,
     `<p style="white-space: pre-wrap; font-family: ui-sans-serif, system-ui, sans-serif;">${escapeHtml(message)}</p>`,
   ].join("");
 
