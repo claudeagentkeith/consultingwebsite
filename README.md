@@ -162,10 +162,11 @@ Target: 95+ Performance, 100 Accessibility / Best Practices / SEO.
 These need a real account, identity, or outreach — they cannot be
 auto-completed by the agent. Listed in rough ROI order:
 
-1. **Google Search Console** — verify domain ownership (Domain property →
-   add the TXT record at the DNS registrar). Without GSC the firm has no
-   visibility into queries / clicks / indexing errors. Then submit
-   `/sitemap.xml` from inside GSC.
+1. ~~**Google Search Console**~~ ✅ **Done** — URL-prefix property
+   `https://hitmakerengineering.com/` verified via HTML-tag method
+   (`metadata.verification.google` in `app/layout.tsx`). Sitemap submitted;
+   `Status: Success / 10 pages discovered`. Indexing requested on home + 5
+   service pages + the `/services` hub.
 2. **Bing Webmaster Tools** — add site, choose **Import from GSC** for
    one-click setup. Confirms the IndexNow key file is reachable.
 3. **LinkedIn Company Page** + a founding announcement post linking to
@@ -176,12 +177,12 @@ auto-completed by the agent. Listed in rough ROI order:
 5. **Long-form `/insights` articles** — the structural scaffold is here; the
    substance has to come from a human. The plan's recommended first six
    topics are kept in `lib/insights.ts` as drafts when seeded.
-6. **Resend domain authentication** — verify `hitmakerengineering.com` in
-   Resend (SPF / DKIM / DMARC) and create a branded sender like
-   `contact@hitmakerengineering.com`. Until then, the contact form delivers
-   via the shared `onboarding@resend.dev` sender (free tier delivers only
-   to the account-owner address). See "Backlog → Branded Resend domain
-   verification" below.
+6. ~~**Resend domain authentication**~~ ✅ **Done** —
+   `hitmakerengineering.com` is verified in Resend (DKIM `resend._domainkey`,
+   SPF `send`, MX `send` → `feedback-smtp.us-east-1.amazonses.com`). Contact
+   form sends from `hello@hitmakerengineering.com` (`CONTACT_FROM_EMAIL` env
+   var on Vercel). Cloudflare Email Routing alias `hello@` →
+   `kdherrington@gmail.com` is **Active** so inbound mail delivers.
 7. **Google Business Profile** — only if a verifiable business address is
    willing to be published. Skip if the firm is fully virtual; a GBP without
    a real address invites suspension.
@@ -192,31 +193,26 @@ auto-completed by the agent. Listed in rough ROI order:
 
 ## Backlog
 
-### Branded Resend domain verification
+### Branded Resend domain verification — ✅ resolved
 
-Re-add `hello@hitmakerengineering.com` to public pages once **both** of the
-following are live:
+`hello@hitmakerengineering.com` is back on every public surface (Footer,
+`/contact` sidebar, ContactForm success card, `/api/contact` error
+messages). Both gating conditions that originally caused the address to be
+removed are now live:
 
-1. **Resend domain verification for `hitmakerengineering.com`** — adds the
-   SPF/DKIM/DMARC records to Cloudflare DNS for the zone, so Resend can
-   send `from: hello@hitmakerengineering.com` (or any other branded
-   address) to arbitrary recipients. Today the contact form delivers via
-   Resend's shared `onboarding@resend.dev` sender, which on the free tier
-   only delivers to the Resend account-owner address.
+1. **Resend domain verification for `hitmakerengineering.com`** — DKIM /
+   SPF / MX records added to Cloudflare DNS; Resend dashboard shows the
+   domain as **Verified**. Sender `hello@hitmakerengineering.com` is
+   authorized.
 2. **Cloudflare Email Routing alias** `hello@hitmakerengineering.com` →
-   `kdherrington@gmail.com` (or wherever incoming `hello@` mail should
-   land). Without this, mail sent _to_ `hello@…` would bounce.
+   `kdherrington@gmail.com` is **Active**. Inbound mail delivers.
 
-The TODO comments next to the removed surfaces — Footer, `/contact`
-sidebar, ContactForm success card, and `/api/contact` error messages —
-mark exactly where the public address used to render so it's easy to
-reinstate when both conditions are met.
+`CONTACT_FROM_EMAIL` is set to `hello@hitmakerengineering.com` on Vercel
+(replacing the prior `onboarding@resend.dev`). The contact form sends from
+the branded address and improves deliverability via authenticated DKIM /
+SPF.
 
 ### Other deferred items
 
-- **Verify keith@hitmakerengineering.com Email Routing forwarding** — the
-  Cloudflare Email Routing rule is configured (`keith@hitmakerengineering.com`
-  → `kdherrington@gmail.com`) and the destination is verified, but no
-  external sender has been used to confirm end-to-end delivery yet.
 - **Gmail "Send mail as" SMTP** — requires entering Resend SMTP credentials
   into Gmail's setup flow (deferred per project owner).

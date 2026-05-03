@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -9,18 +7,12 @@ export default function Footer() {
           &copy; {year} Hitmaker Engineering. San Francisco, CA.
         </div>
         <div className="flex items-center gap-4">
-          {/*
-            TODO: re-add hello@hitmakerengineering.com once Resend domain
-            verification for hitmakerengineering.com is live AND Cloudflare
-            Email Routing alias hello@ → kdherrington@gmail.com is wired.
-            See backlog: branded Resend domain verification.
-          */}
-          <Link
-            href="/contact"
+          <a
+            href="mailto:hello@hitmakerengineering.com"
             className="text-ink-600 no-underline transition hover:text-ink-900"
           >
-            Contact
-          </Link>
+            hello@hitmakerengineering.com
+          </a>
         </div>
       </div>
     </footer>
